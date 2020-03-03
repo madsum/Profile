@@ -1,0 +1,15 @@
+create table profile(
+id serial PRIMARY KEY,
+display_Name varchar(256) NOT NULL,
+real_name varchar(256) NOT NULL,
+picture_path varchar(300),
+birthday DATE NOT NULL,
+gender varchar(10) NOT NULL,
+ethnicity varchar(30),
+religion varchar(30),
+height decimal,
+figure varchar(30),
+marital varchar(30),
+occupation text,
+about_me text,
+city_location varchar(100) NOT NULL);

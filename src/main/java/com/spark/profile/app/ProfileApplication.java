@@ -1,4 +1,4 @@
-package com.spark.profile;
+package com.spark.profile.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

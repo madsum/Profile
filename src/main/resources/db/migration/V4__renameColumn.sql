@@ -1,0 +1,1 @@
+alter table profile rename birthday to birth_date;

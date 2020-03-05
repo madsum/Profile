@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ProfileService {
 
-    void saveOrUpdateExpense(Profile profile);
+    Profile saveOrUpdateProfile(Profile profile);
 
     void deleteProfilById(long id);
 
@@ -16,5 +16,7 @@ public interface ProfileService {
     List<Profile> findAll();
 
     Profile findById(long id);
+
+    String storeFile(MultipartFile file, String path);
 
 }

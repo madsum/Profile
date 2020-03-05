@@ -15,15 +15,15 @@ public class Profile {
     private Long id;
 
     @NotNull
-    String displayName;
+    String display_name;
 
     @NotNull
-    String realName;
+    String real_name;
 
-    String picturePath;
+    String picture_path;
 
     @NotNull
-    Date birthDate;
+    Date birth_date;
 
     @NotNull
     String gender;
@@ -37,20 +37,20 @@ public class Profile {
     String figure;
 
     @NotNull
-    String maritalStatus;
+    String marital_status;
 
     String occupation;
 
-    String aboutMe;
+    String about_me;
 
     @NotNull
-    String cityLocation;
+    String city_location;
 
     @CreationTimestamp
-    private java.util.Date createdAt;
+    private java.util.Date created_at;
 
     @UpdateTimestamp
-    private java.util.Date updatedAt;
+    private java.util.Date updated_at;
 
     public Profile() {
 
@@ -64,36 +64,36 @@ public class Profile {
         this.id = id;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public String getDisplay_name() {
+        return display_name;
     }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+    public void setDisplay_name(String display_name) {
+        this.display_name = display_name;
     }
 
-    public String getRealName() {
-        return realName;
+    public String getReal_name() {
+        return real_name;
     }
 
-    public void setRealName(String realName) {
-        this.realName = realName;
+    public void setReal_name(String real_name) {
+        this.real_name = real_name;
     }
 
-    public String getPicturePath() {
-        return picturePath;
+    public String getPicture_path() {
+        return picture_path;
     }
 
-    public void setPicturePath(String picturePath) {
-        this.picturePath = picturePath;
+    public void setPicture_path(String picture_path) {
+        this.picture_path = picture_path;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
+    public Date getBirth_date() {
+        return birth_date;
     }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    public void setBirth_date(Date birth_date) {
+        this.birth_date = birth_date;
     }
 
     public String getGender() {
@@ -136,12 +136,12 @@ public class Profile {
         this.figure = figure;
     }
 
-    public String getMaritalStatus() {
-        return maritalStatus;
+    public String getMarital_status() {
+        return marital_status;
     }
 
-    public void setMaritalStatus(String maritalStatus) {
-        this.maritalStatus = maritalStatus;
+    public void setMarital_status(String marital_status) {
+        this.marital_status = marital_status;
     }
 
     public String getOccupation() {
@@ -152,57 +152,57 @@ public class Profile {
         this.occupation = occupation;
     }
 
-    public String getAboutMe() {
-        return aboutMe;
+    public String getAbout_me() {
+        return about_me;
     }
 
-    public void setAboutMe(String aboutMe) {
-        this.aboutMe = aboutMe;
+    public void setAbout_me(String about_me) {
+        this.about_me = about_me;
     }
 
-    public String getCityLocation() {
-        return cityLocation;
+    public String getCity_location() {
+        return city_location;
     }
 
-    public void setCityLocation(String cityLocation) {
-        this.cityLocation = cityLocation;
+    public void setCity_location(String city_location) {
+        this.city_location = city_location;
     }
 
-    public java.util.Date getCreatedAt() {
-        return createdAt;
+    public java.util.Date getCreated_at() {
+        return created_at;
     }
 
-    public void setCreatedAt(java.util.Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated_at(java.util.Date created_at) {
+        this.created_at = created_at;
     }
 
-    public java.util.Date getUpdatedAt() {
-        return updatedAt;
+    public java.util.Date getUpdated_at() {
+        return updated_at;
     }
 
-    public void setUpdatedAt(java.util.Date updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setUpdated_at(java.util.Date updated_at) {
+        this.updated_at = updated_at;
     }
 
     @Override
     public String toString() {
         return "Profile{" +
                 "id=" + id +
-                ", displayName='" + displayName + '\'' +
-                ", realName='" + realName + '\'' +
-                ", picturePath='" + picturePath + '\'' +
-                ", birthDate=" + birthDate +
+                ", displayName='" + display_name + '\'' +
+                ", realName='" + real_name + '\'' +
+                ", picturePath='" + picture_path + '\'' +
+                ", birthDate=" + birth_date +
                 ", gender='" + gender + '\'' +
                 ", ethnicity='" + ethnicity + '\'' +
                 ", religion='" + religion + '\'' +
                 ", height=" + height +
                 ", figure='" + figure + '\'' +
-                ", maritalStatus='" + maritalStatus + '\'' +
+                ", maritalStatus='" + marital_status + '\'' +
                 ", occupation='" + occupation + '\'' +
-                ", aboutMe='" + aboutMe + '\'' +
-                ", cityLocation='" + cityLocation + '\'' +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
+                ", aboutMe='" + about_me + '\'' +
+                ", cityLocation='" + city_location + '\'' +
+                ", createdAt=" + created_at +
+                ", updatedAt=" + updated_at +
                 '}';
     }
 }

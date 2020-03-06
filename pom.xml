@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.spark</groupId>
 	<artifactId>profile</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	<name>profile</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -37,18 +37,11 @@
 			<artifactId>flyway-core</artifactId>
 		</dependency>
 
-		<!-- h2 in memory -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
 		<!-- postgresql -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.2.10</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<!-- spring boot test -->

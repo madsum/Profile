@@ -20,8 +20,6 @@ public class Profile {
     @NotNull
     String real_name;
 
-    String picture_path;
-
     @NotNull
     Date birth_date;
 
@@ -52,6 +50,8 @@ public class Profile {
     @UpdateTimestamp
     private java.util.Date updated_at;
 
+    private String fileDownloadUri;
+
     public Profile() {
 
     }
@@ -78,14 +78,6 @@ public class Profile {
 
     public void setReal_name(String real_name) {
         this.real_name = real_name;
-    }
-
-    public String getPicture_path() {
-        return picture_path;
-    }
-
-    public void setPicture_path(String picture_path) {
-        this.picture_path = picture_path;
     }
 
     public Date getBirth_date() {
@@ -184,25 +176,33 @@ public class Profile {
         this.updated_at = updated_at;
     }
 
+    public String getFileDownloadUri() {
+        return fileDownloadUri;
+    }
+
+    public void setFileDownloadUri(String fileDownloadUri) {
+        this.fileDownloadUri = fileDownloadUri;
+    }
+
     @Override
     public String toString() {
         return "Profile{" +
                 "id=" + id +
-                ", displayName='" + display_name + '\'' +
-                ", realName='" + real_name + '\'' +
-                ", picturePath='" + picture_path + '\'' +
-                ", birthDate=" + birth_date +
+                ", display_name='" + display_name + '\'' +
+                ", real_name='" + real_name + '\'' +
+                ", birth_date=" + birth_date +
                 ", gender='" + gender + '\'' +
                 ", ethnicity='" + ethnicity + '\'' +
                 ", religion='" + religion + '\'' +
                 ", height=" + height +
                 ", figure='" + figure + '\'' +
-                ", maritalStatus='" + marital_status + '\'' +
+                ", marital_status='" + marital_status + '\'' +
                 ", occupation='" + occupation + '\'' +
-                ", aboutMe='" + about_me + '\'' +
-                ", cityLocation='" + city_location + '\'' +
-                ", createdAt=" + created_at +
-                ", updatedAt=" + updated_at +
+                ", about_me='" + about_me + '\'' +
+                ", city_location='" + city_location + '\'' +
+                ", created_at=" + created_at +
+                ", updated_at=" + updated_at +
+                ", fileDownloadUri='" + fileDownloadUri + '\'' +
                 '}';
     }
 }

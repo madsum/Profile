@@ -1,0 +1,1 @@
+alter table profile rename filedownloaduri to file_download_uri;

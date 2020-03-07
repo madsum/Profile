@@ -1,6 +1,7 @@
 package com.spark.profile.service;
 
 import com.spark.profile.model.Profile;
+import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -19,4 +20,9 @@ public interface ProfileService {
 
     String storeFile(MultipartFile file, String path);
 
+    String getFileDownloadUri();
+
+    void setFileDownloadUri(String fileDownloadUri);
+
+    Resource loadFileAsResource(String fileName);
 }

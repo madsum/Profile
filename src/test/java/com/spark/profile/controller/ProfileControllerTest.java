@@ -1,8 +1,8 @@
 package com.spark.profile.controller;
 
-import com.spark.profile.util.TestDataUtil;
 import com.spark.profile.model.Profile;
 import com.spark.profile.service.ProfileService;
+import com.spark.profile.util.TestDataUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -40,7 +40,7 @@ class ProfileControllerTest {
 
         // act
         when(profileService.findById(1l)).thenReturn(expectedProfile);
-        Profile actualProfile =   profileController.findById(1l);
+        Profile actualProfile = profileController.findById(1l);
 
         // assert
         assertNotNull(actualProfile);
@@ -71,7 +71,7 @@ class ProfileControllerTest {
 
         // act
         when(profileService.saveOrUpdateProfile(profile)).thenReturn(profile);
-        ResponseEntity<?> responseEntity =    profileController.saveOrUpdateProfile(profile);
+        ResponseEntity<?> responseEntity = profileController.saveOrUpdateProfile(profile);
 
         // assert
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
@@ -84,16 +84,14 @@ class ProfileControllerTest {
         MockHttpServletRequest request = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(
                 new ServletRequestAttributes(request));
-        MockMultipartFile file = new MockMultipartFile("user-file",
-                        "Pic.jpg",
-                            null, "data".getBytes());
+        MockMultipartFile file = TestDataUtil.getMockMultipartFile();
         String exitingPhotoPath = "exitingPhotoPath";
         String expctedNewPhotoPath = "newPhotoPath";
 
         // act
         when(profileService.storeFile(file, exitingPhotoPath))
                 .thenReturn(expctedNewPhotoPath);
-        String actualNewPhotoPath  =  profileController.saveOrUpdatePhoto(file, exitingPhotoPath );
+        String actualNewPhotoPath = profileController.saveOrUpdatePhoto(file, exitingPhotoPath);
 
         // Assert
         assertEquals(actualNewPhotoPath, expctedNewPhotoPath);

@@ -47,7 +47,8 @@ public class ProfileServiceImpl implements ProfileService {
     public ProfileServiceImpl(@Value("${profilePictureDirectory}")
                                       String profilePictureDirectory,
                               @Value("${pathSeparator}") String pathSeparator) {
-        fileStorageLocation = Paths.get(System.getProperty("user.dir") + pathSeparator + profilePictureDirectory)
+        fileStorageLocation = Paths.get(System.getProperty("user.dir") + pathSeparator
+                + profilePictureDirectory)
                 .toAbsolutePath().normalize();
         this.pathSeparator = pathSeparator;
         this.profilePictureDirectory = profilePictureDirectory;
@@ -106,7 +107,7 @@ public class ProfileServiceImpl implements ProfileService {
         if (!Objects.isNull(path) && !Objects.equals(path, "")) {
             try {
                 String[] split = path.split(pathSeparator);
-                Files.deleteIfExists(Paths.get(fileStorageLocation + split[split.length - 1]));
+                Files.deleteIfExists(Paths.get(fileStorageLocation + pathSeparator + split[split.length - 1]));
             } catch (IOException e) {
                 // ignore this exception
                 logger.info("File delete exception. We can ignore it " + e.getMessage());
@@ -134,10 +135,12 @@ public class ProfileServiceImpl implements ProfileService {
     private String generateTimestampFilename(String fileName) {
         String timestampFilename = null;
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        String strTimestamp = timestamp.toString();
+        strTimestamp = strTimestamp.replaceAll("\\s", "");
         if (null != fileName) {
             String[] splitName = fileName.split("\\.");
             if (splitName.length > 0) {
-                timestampFilename = splitName[0] + "-" + timestamp.toString() + "." + splitName[splitName.length - 1];
+                timestampFilename = splitName[0] + "-" + strTimestamp + "." + splitName[splitName.length - 1];
             }
         }
         return timestampFilename;

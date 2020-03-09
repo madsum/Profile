@@ -96,4 +96,18 @@ class ProfileControllerTest {
         // Assert
         assertEquals(actualNewPhotoPath, expctedNewPhotoPath);
     }
+
+
+    @Test
+    void testShowHomePage() {
+        // Arrangement
+        String expectedString = "Welcome to the Spark dating service. Please go to http://localhost:3000/ ";
+
+        // Act
+        String actualString = profileController.showHomePage();
+
+        // Assert
+        assertEquals(actualString, expectedString);
+
+    }
 }

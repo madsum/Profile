@@ -30,6 +30,11 @@ public class ProfileController {
     @Value("${profilePictureDirectory}")
     private String profilePictureDirectory;
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String showHomePage() {
+        return "Welcome to the Spark dating service. Please go to http://localhost:3000/ ";
+    }
+
     /**
      * This will find profile by id.
      *
@@ -38,7 +43,7 @@ public class ProfileController {
      * @since 05-02-2020
      */
 
-    @RequestMapping("/profile/{id}")
+    @RequestMapping(value = "/profile/{id}", method = RequestMethod.GET)
     public Profile findById(@PathVariable("id") long id) {
         return profileService.findById(id);
     }
@@ -50,7 +55,7 @@ public class ProfileController {
      * @since 05-02-2020
      */
 
-    @RequestMapping("/all/profile")
+    @RequestMapping(value = "/all/profile", method = RequestMethod.GET)
     public List<Profile> findAll() {
         return profileService.findAll();
     }

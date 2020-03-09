@@ -13,6 +13,8 @@ mvn clean install
 
 docker-compose up --build
 
+P.S: Limitation and future improvement suggestion. It is a prototype service without authentication. So all users can edit any profile or even delete all profiles. So we must improve it in the future. 
+
 
 
 

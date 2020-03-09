@@ -75,6 +75,9 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     private static Profile removeCityLatLon(Profile profile) {
+        if (Objects.isNull(profile.getCity_location())) {
+            return profile;
+        }
         String[] splitStr = profile.getCity_location().split("#");
         if (splitStr.length > 0) {
             profile.setCity_location(splitStr[0]);

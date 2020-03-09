@@ -1,21 +1,24 @@
 package com.spark.profile.service;
 
-import com.spark.profile.util.TestDataUtil;
 import com.spark.profile.exception.FileStorageException;
 import com.spark.profile.exception.ProfileNotFoundException;
 import com.spark.profile.model.Profile;
 import com.spark.profile.repository.ProfileRepository;
+import com.spark.profile.util.TestDataUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class ProfileServiceImplTest {
     @InjectMocks
     ProfileServiceImpl profileServiceImpl;
@@ -37,7 +40,7 @@ class ProfileServiceImplTest {
         Profile expectedProfile = TestDataUtil.createProfile();
         // act
         when(profileRepository.findById(1l)).thenReturn(java.util.Optional.of(expectedProfile));
-        Profile actualProfile =  profileServiceImpl.findById(1l);
+        Profile actualProfile = profileServiceImpl.findById(1l);
 
         // assert
         assertNotNull(actualProfile);
@@ -60,22 +63,22 @@ class ProfileServiceImplTest {
     }
 
     @Test
-    void testThrowFileStorageExceptionWhenNull(){
-        // act
-        when(profileService.storeFile(null, null)).thenReturn(null);
+    void testThrowFileStorageExceptionWhenNull() {
         //assert
         assertThrows(FileStorageException.class,
-                () -> {profileServiceImpl.storeFile(null,null);}
+                () -> {
+                    profileServiceImpl.storeFile(null, null);
+                }
         );
     }
 
     @Test
-    void testThrowProfileNotFoundException(){
-        // act
-        when(profileService.findById(100l)).thenReturn(null);
+    void testThrowProfileNotFoundException() {
         // assert
         assertThrows(ProfileNotFoundException.class,
-                () -> {profileServiceImpl.findById(100l);}
+                () -> {
+                    profileServiceImpl.findById(0l);
+                }
         );
     }
 }

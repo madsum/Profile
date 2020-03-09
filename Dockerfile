@@ -1,6 +1,7 @@
-FROM openjdk:8
-WORKDIR app
-ADD target/profile-0.1.jar ProfileEditor.jar
+FROM openjdk:8-jdk-alpine
+MAINTAINER madsum@gmail.com
+VOLUME /tmp
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","ProfileEditor.jar"]
+ADD target/profile-0.1.jar ProfileEditor.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/ProfileEditor.jar"]
 

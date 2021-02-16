@@ -5,7 +5,6 @@ import com.spark.profile.model.Profile;
 import com.spark.profile.service.ProfileService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -24,11 +23,14 @@ public class ProfileController {
 
     private static final Logger logger = LogManager.getLogger(ProfileController.class);
 
-    @Autowired
-    ProfileService profileService;
+    private final ProfileService profileService;
 
     @Value("${profilePictureDirectory}")
     private String profilePictureDirectory;
+
+    public ProfileController(ProfileService profileService) {
+        this.profileService = profileService;
+    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String showHomePage() {

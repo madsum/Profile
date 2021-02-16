@@ -8,7 +8,6 @@ import com.spark.profile.model.Profile;
 import com.spark.profile.repository.ProfileRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -33,8 +32,7 @@ public class ProfileServiceImpl implements ProfileService {
 
     private static final Logger logger = LogManager.getLogger(ProfileServiceImpl.class);
 
-    @Autowired
-    private ProfileRepository profileRepository;
+    private final ProfileRepository profileRepository;
 
     private String fileDownloadUri = null;
 
@@ -44,9 +42,10 @@ public class ProfileServiceImpl implements ProfileService {
 
     private final Path fileStorageLocation;
 
-    public ProfileServiceImpl(@Value("${profilePictureDirectory}")
-                                      String profilePictureDirectory,
+    public ProfileServiceImpl(ProfileRepository profileRepository, @Value("${profilePictureDirectory}")
+            String profilePictureDirectory,
                               @Value("${pathSeparator}") String pathSeparator) {
+        this.profileRepository = profileRepository;
         fileStorageLocation = Paths.get(System.getProperty("user.dir") + pathSeparator
                 + profilePictureDirectory)
                 .toAbsolutePath().normalize();
